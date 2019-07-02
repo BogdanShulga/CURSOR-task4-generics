@@ -11,7 +11,7 @@ public class Main {
         boolean stop = false;
 
         Scanner scanner = new Scanner(System.in);
-        while (!stop){
+        while (!stop) {
             System.out.println("Please enter the amount of your money:");
             try {
                 n = scanner.nextDouble();
@@ -23,14 +23,14 @@ public class Main {
             stop = true;
         }
 
-        System.out.println("Your number of bills: ");
-        if (n > 24564 && n < 35790) {
-            long start = System.currentTimeMillis();
-            System.out.println(banknoteKeeper.withdrawCash(n));
-            long end = System.currentTimeMillis();
-            System.out.print("Execution time is " + (end - start) / 1000d + " seconds");
-        } else {
-            System.out.println(banknoteKeeper.withdrawCash(n));
+        System.out.print("Your number of bills: ");
+        System.out.println(banknoteKeeper.withdrawCash(n));
+
+        long start = System.currentTimeMillis();
+        for (int i = 24565; i < 35790; i++) {
+            banknoteKeeper.withdrawCash(i);
         }
+        long end = System.currentTimeMillis();
+        System.out.print("Time to calculate the number of bills for amounts from 24565 grn to 35789 grn is:  " + (end - start) / 1000d + " seconds");
     }
 }
